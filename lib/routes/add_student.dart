@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:students_db/db/database_helper.dart';
 import 'package:students_db/model/student.dart';
 import 'package:students_db/routes/student_list.dart';
@@ -156,6 +157,16 @@ class _AddStudentState extends State<AddStudent> {
 
                     if( result > 0){
                       print('Added');
+                      Fluttertoast.showToast(
+                          msg: "Saved",
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.BOTTOM,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor: Colors.green,
+                          textColor: Colors.white,
+                          fontSize: 16.0
+                      );
+
                     }else{
                       print('Failed');
                     }

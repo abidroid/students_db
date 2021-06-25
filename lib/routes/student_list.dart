@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:students_db/db/database_helper.dart';
 import 'package:students_db/model/student.dart';
 import 'package:students_db/routes/update_student.dart';
@@ -121,6 +122,17 @@ class _StudentListState extends State<StudentList> {
 
                                               var result = await DatabaseHelper.instance.deleteStudent(student.id!);
                                               if( result > 0 ){
+
+                                                Fluttertoast.showToast(
+                                                    msg: "Deleted",
+                                                    toastLength: Toast.LENGTH_SHORT,
+                                                    gravity: ToastGravity.BOTTOM,
+                                                    timeInSecForIosWeb: 1,
+                                                    backgroundColor: Colors.green,
+                                                    textColor: Colors.white,
+                                                    fontSize: 16.0
+                                                );
+
                                                 Navigator.pop(context);
                                                 setState(() {
 

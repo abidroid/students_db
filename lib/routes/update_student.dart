@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:students_db/db/database_helper.dart';
 import 'package:students_db/model/student.dart';
 
@@ -128,6 +129,15 @@ class _UpdateStudentState extends State<UpdateStudent> {
                       var result = await DatabaseHelper.instance.updateStudent(s);
 
                       if( result > 0){
+                        Fluttertoast.showToast(
+                            msg: "Updated",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.green,
+                            textColor: Colors.white,
+                            fontSize: 16.0
+                        );
                         Navigator.pop(context, 'yes');
                       }else{
                         print('Failed');
